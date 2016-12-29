@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sanity Test Suite">
+	<parameter name="browserType" value="GC" />
+	<listeners>
+		<listener class-name="com.tr.util.CustomReport" />
+	</listeners>
+
+	<test name="Sanity Tests" preserve-order="true">
+		<groups>
+			<run>
+				<include name="Sanity" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.tr.test.HomePageTest" />
+		</classes>
+	</test>
+</suite>

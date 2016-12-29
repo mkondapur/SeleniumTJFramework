@@ -1,0 +1,34 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Test Suite">
+
+	<parameter name="browserType" value="FF" />
+	<listeners>
+		<listener class-name="com.itc.util.CustomReport" />
+		  <listener class-name="com.itc.util.ExtentReporterNG" />
+	</listeners>
+	<test name="Regression Tests" preserve-order="true" >
+
+		<groups>
+			<run>
+				<include name="Regression" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.itc.test.LoginPageTest" />
+			<class name="com.itc.test.NewVendorPageTest" />
+			<class name="com.itc.test.EditVendorPageTest" />
+			<class name="com.itc.test.DeleteVendorPageTest" />
+			<class name="com.itc.test.NewAccountPageTest" />
+			<class name="com.itc.test.EditAccountPageTest" />
+			<class name="com.itc.test.EditAccounListTransactionTest" />
+			<class name="com.itc.test.NewJournalPageTest" />
+			<class name="com.itc.test.EditJournalPageTest" />
+			<class name="com.itc.test.ListPaymentPageTest" />
+			<class name="com.itc.test.NewInvoicePageTest" />
+			<class name="com.itc.test.NewCustomerPageTest"> 
+				
+			</class>
+		</classes>
+
+	</test>
+</suite>
