@@ -145,4 +145,21 @@ public class RegisterPage extends BasePageObject{
 		
 		return this;
 	}
+	
+	public CandidateDashboardPage clickOnContinue() throws Exception{
+		try {
+			
+			logger.info("Clicking on Register continue button");
+			flag = isElementPresent(btnContunue);
+			Assert.assertTrue(flag, "Continue button is not displayed");
+			setElement(btnContunue).click();
+			TimesJobUtil.explicitWait(3000);
+			
+		} catch (Exception e) {
+			
+			throw new Exception("Failed while clickin on contune button in register page"+e.getLocalizedMessage());
+		}
+		
+		return new CandidateDashboardPage(driver);
+	}
 }

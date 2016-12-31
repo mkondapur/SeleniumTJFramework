@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterClass;
@@ -91,8 +92,10 @@ public class BaseTestObject {
         }
         else if(browser.equalsIgnoreCase("GC"))
         {
+        	ChromeOptions options = new ChromeOptions();
+        	options.addArguments("chrome.switches","--disable-extensions");
             System.setProperty("webdriver.chrome.driver",chromeDriverPath);
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(options);
         }
         else if(browser.equalsIgnoreCase("IE")){
             System.setProperty("webdriver.ie.driver","C:\\IEdriver.exe");

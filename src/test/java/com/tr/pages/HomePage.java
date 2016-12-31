@@ -24,6 +24,7 @@ public class HomePage extends BasePageObject
 		}
 		
 		public static Logger logger = Logger.getLogger(HomePage.class);
+		
 	/*Variables*/
 		
 	boolean flag = false;
@@ -87,6 +88,34 @@ public class HomePage extends BasePageObject
 		
 		
 		return new SignInPage(driver);
+	}
+	
+	
+	/**
+	 * This method helps us click on Register link
+	 * @author Manjunath
+	 * @return RegisterPage
+	 * @param No param
+	 * @throws Exception
+	 */
+	public RegisterPage clickOnRegister() throws Exception
+	{
+		try 
+		{
+			logger.info("Clicking on Register link");
+			flag = isElementPresent(lnkRegister);
+			Assert.assertTrue(flag, "SignIn link is not displayed");
+			setElement(lnkRegister).click();
+			TimesJobUtil.explicitWait(3000);
+			
+		} 
+		catch (Exception e) 
+		{
+			throw new Exception("Login link is not present in Home page::"+e.getLocalizedMessage());
+		}
+		
+		
+		return new RegisterPage(driver);
 	}
 	
 	

@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Sanity Test Suite">
-	<parameter name="browserType" value="GC" />
-	<listeners>
+	<parameter name="browserType" value="FF" />
+	<!-- <listeners>
 		<listener class-name="com.tr.util.CustomReport" />
-	</listeners>
+	</listeners> -->
 
 	<test name="Sanity Tests" preserve-order="true">
 		<groups>
