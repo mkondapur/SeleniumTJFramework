@@ -51,7 +51,7 @@ public class BaseTestObject {
 
 		try
 		{
-			input = new FileInputStream(propertyFilePath);
+			 input = new FileInputStream(propertyFilePath);
 			// load a properties file
 			prop.load(input);
 		} 

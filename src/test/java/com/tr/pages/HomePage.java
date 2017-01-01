@@ -34,7 +34,7 @@ public class HomePage extends BasePageObject
 	
 	By imgSiteLogo = By.xpath("//img[@alt='TimesJobs']");
 	By lnkSignIn = By.xpath("//*[@id='site']//a[contains(.,'Sign In')]");
-	By lnkRegister = By.xpath("//*[@id='site']//a[contains(.,'Register')]");
+	By lnkRegister = By.xpath(".//*[@id='site']/div[3]/header/nav[2]/ul[2]/li[2]/a");
 	
 	public boolean isSiteLogoDisplayed() throws Exception
 	
@@ -104,7 +104,7 @@ public class HomePage extends BasePageObject
 		{
 			logger.info("Clicking on Register link");
 			flag = isElementPresent(lnkRegister);
-			Assert.assertTrue(flag, "SignIn link is not displayed");
+			Assert.assertTrue(flag, "Register link is not displayed");
 			setElement(lnkRegister).click();
 			TimesJobUtil.explicitWait(3000);
 			

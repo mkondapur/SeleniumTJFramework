@@ -2,6 +2,7 @@ package com.tr.pages;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -39,7 +40,10 @@ public class RegisterPage extends BasePageObject{
 			logger.info("Entering email id as :"+emailId);
 			flag = isElementPresent(txtEmail);
 			Assert.assertTrue(flag, "Email id is not displayed");
-			setElement(txtEmail).sendKeys(emailId);
+			element = setElement(txtEmail);
+			element.clear();
+			element.sendKeys(emailId);
+			element.sendKeys(Keys.TAB);
 		} catch (Exception e) {
 			
 			throw new Exception("Failed while entering email id in register page"+e.getLocalizedMessage());
@@ -54,6 +58,7 @@ public class RegisterPage extends BasePageObject{
 			flag = isElementPresent(txtPassword);
 			Assert.assertTrue(flag, "Password field is not displayed");
 			setElement(txtPassword).sendKeys(password);
+			element.sendKeys(Keys.TAB);
 		} catch (Exception e) {
 			
 			throw new Exception("Failed while entering password in register page"+e.getLocalizedMessage());
@@ -68,6 +73,7 @@ public class RegisterPage extends BasePageObject{
 			flag = isElementPresent(txtConfirmPassword);
 			Assert.assertTrue(flag, "Confirm password field is not displayed");
 			setElement(txtConfirmPassword).sendKeys(confirmPassword);
+			element.sendKeys(Keys.TAB);
 		} catch (Exception e) {
 			
 			throw new Exception("Failed while entering confirm password in register page"+e.getLocalizedMessage());
