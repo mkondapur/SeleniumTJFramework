@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Sanity Test Suite">
-	<parameter name="browserType" value="FF" />
+	<parameter name="browserType" value="GC" />
 	<!-- <listeners>
 		<listener class-name="com.tr.util.CustomReport" />
 	</listeners> -->

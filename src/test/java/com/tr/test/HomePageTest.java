@@ -41,8 +41,8 @@ public class HomePageTest extends BaseTestObject{
 
 	}
 	
-	@Parameters({"browserType"})
-	@Test(priority=0, enabled=false,groups="Sanity")
+	//@Parameters({"browserType"})
+	//@Test(priority=0, enabled=false,groups="Sanity")
 	public void verifyRegister() throws Exception
 	{
 	try 
