@@ -1,5 +1,6 @@
 package com.tr.test;
 
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Parameters;
@@ -25,6 +26,7 @@ public class HomePageTest extends BaseTestObject{
 	String text = null;
 	int step =0;
 	String stepTxt ="STEP:";
+	public static Logger logger = Logger.getLogger(HomePageTest.class);
 	
 	@Parameters({"browserType"})
 	@Test(priority=0, enabled=true,groups="Sanity")
@@ -32,12 +34,12 @@ public class HomePageTest extends BaseTestObject{
 	{
 	try 
 	{
-		
+		Reporter.log(step+":Starts:verifyHomePage Test");
 		String userName = getHomePageDataFromPropertyFile("username");//Read test data from Property file
 		String password = getHomePageDataFromPropertyFile("password");
 		
 		System.out.println(userName+password);
-		Reporter.log(step+":Verifying Home page site logo");
+		logger.info(step+":Verifying Home page site logo");
 		objHomePage = new HomePage(driver);
 		flag = objHomePage.isSiteLogoDisplayed();
 		Reporter.log(stepTxt+step+"Site logo status:"+flag);
@@ -52,6 +54,7 @@ public class HomePageTest extends BaseTestObject{
 	    Reporter.log(stepTxt+step+"Pop header text:"+text+":"+TimesJobConstants.TITLE_SIGNIN);
 	    Assert.assertEquals(text, TimesJobConstants.TITLE_SIGNIN);
 	    objSignInpage.closeIcon();
+	    logger.info(step+":End:verifyHomePage Test");
 	} 
 	catch (Exception e) 
 	{
