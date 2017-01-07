@@ -93,8 +93,8 @@ public class BaseTestObject {
         else if(browser.equalsIgnoreCase("GC"))
         {
         	ChromeOptions options = new ChromeOptions();
+        	System.setProperty("webdriver.chrome.driver",chromeDriverPath);
         	options.addArguments("chrome.switches","--disable-extensions");
-            System.setProperty("webdriver.chrome.driver",chromeDriverPath);
             driver = new ChromeDriver(options);
         }
         else if(browser.equalsIgnoreCase("IE")){

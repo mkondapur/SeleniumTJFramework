@@ -359,6 +359,11 @@ public  String getPageTitle()
 		Assert.assertEquals(Actual, Expected, Message);
 	}
 	
+	public  void selectItemByVisibleText(By by, String value) {
+		WebElement element = driver.findElement(by);
+		new Select(element).selectByVisibleText(value);
+	}
+	
 //	public String getExcelTest(int row,int column,String sheetName) throws Exception {
 //				ExcelutilObject.setExcelFile(MonsterIndiaConstants.Path_TestData, sheetName);
 //				return ExcelutilObject.getCellData(row, column);

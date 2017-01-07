@@ -587,9 +587,5 @@ public class TimesJobUtil {
 		select.selectByValue(value);
 	}
 
-	public static void selectItemByVisibleText(By by, String value) {
-		WebElement element = getWebDriver().findElement(by);
-		Select select = new Select(element);
-		select.deselectByVisibleText(value);
-	}
+	
 }

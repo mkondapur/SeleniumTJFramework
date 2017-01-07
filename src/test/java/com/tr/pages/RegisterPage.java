@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import com.tr.common.TimesJobUtil;
@@ -25,6 +26,7 @@ public class RegisterPage extends BasePageObject{
 	/*Webelements*/
 	
 	By txtEmail = By.id("emailAdd");
+	By lnkemailId = By.xpath(".//*[@id='autoSuggestList']/ul[1]/li[1]/a");
 	By txtPassword = By.id("passwordField");
 	By txtConfirmPassword = By.id("retypePassword");
 	By txtMobileNumber = By.id("mobNumber");
@@ -43,7 +45,8 @@ public class RegisterPage extends BasePageObject{
 			element = setElement(txtEmail);
 			element.clear();
 			element.sendKeys(emailId);
-			element.sendKeys(Keys.TAB);
+			waitForAnElement(lnkemailId, 10);
+			setElement(lnkemailId).click();
 		} catch (Exception e) {
 			
 			throw new Exception("Failed while entering email id in register page"+e.getLocalizedMessage());
@@ -113,9 +116,9 @@ public class RegisterPage extends BasePageObject{
 	public RegisterPage enterExpMonth(String expMonth) throws Exception{
 		try {
 			logger.info("Entering work experience month as :"+expMonth);
-			flag = isElementPresent(txtExpYear);
+			flag = isElementPresent(txtExpMonth);
 			Assert.assertTrue(flag, "Work experience month field is not displayed");
-			setElement(txtExpYear).sendKeys(expMonth);
+			setElement(txtExpMonth).sendKeys(expMonth);
 		} catch (Exception e) {
 			
 			throw new Exception("Failed while Work experience month in register page"+e.getLocalizedMessage());
@@ -129,7 +132,7 @@ public class RegisterPage extends BasePageObject{
 			logger.info("Selecting work Location as :"+workLocation);
 			flag = isElementPresent(scltWorkLocation);
 			Assert.assertTrue(flag, "Work location  field is not displayed");
-			TimesJobUtil.selectItemByVisibleText(scltWorkLocation, workLocation);
+			selectItemByVisibleText(scltWorkLocation, workLocation);
 		} catch (Exception e) {
 			
 			throw new Exception("Failed while work Location in register page"+e.getLocalizedMessage());

@@ -26,8 +26,8 @@ public class HomePageTest extends BaseTestObject{
 	int step =0;
 	String stepTxt ="STEP:";
 	
-	@Parameters({"browserType"})
-	@Test(priority=0, enabled=true,groups="Sanity")
+	//@Parameters({"browserType"})
+	//@Test(priority=0, enabled=true,groups="Sanity")
 	public void verifyHomePage() throws Exception
 	{
 	try 
@@ -83,7 +83,7 @@ public class HomePageTest extends BaseTestObject{
 		TimesJobUtil.explicitWait(1000);
 		objRegisterPage.enterConfirmPassword(password);
 		TimesJobUtil.explicitWait(1000);
-		objRegisterPage.enterMobileNumber(mobileNumber);
+		objRegisterPage.enterMobileNumber("9986839099");
 		TimesJobUtil.explicitWait(1000);
 		objRegisterPage.enterExpYear(expYear);
 		TimesJobUtil.explicitWait(1000);
@@ -98,7 +98,7 @@ public class HomePageTest extends BaseTestObject{
 	} 
 	catch (Exception e) 
 	{
-		throw new Exception("FAILED CLICK ON SITELOGO AND VERFIY PAGETITLE TESTCASE" + "\n verifyHomePage" +e.getLocalizedMessage());
+		throw new Exception("FAILED IN REGISTER TEST CASE" + "\n verifyRegister" +e.getLocalizedMessage());
 	}
 
 	}
