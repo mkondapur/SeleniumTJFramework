@@ -26,8 +26,8 @@ public class HomePageTest extends BaseTestObject{
 	int step =0;
 	String stepTxt ="STEP:";
 	
-	//@Parameters({"browserType"})
-	//@Test(priority=0, enabled=true,groups="Sanity")
+	@Parameters({"browserType"})
+	@Test(priority=0, enabled=true,groups="Sanity")
 	public void verifyHomePage() throws Exception
 	{
 	try 
