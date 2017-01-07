@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import com.tr.common.TimesJobUtil;
 import com.tr.util.BasePageObject;
 
 public class SignInPage extends BasePageObject {
@@ -25,7 +26,7 @@ public class SignInPage extends BasePageObject {
 	By txtEmailId = By.id("j_username");
 	By txtPassword = By.id("j_password");
 	By btnLogin = By.id("//div[@id='loginForm']//input[@value='SIGN IN']");
-	
+	By btnCloseIcon = By.id("closeId");
 	
 	public boolean isSignInPopDisplayed() throws Exception
 	{
@@ -60,6 +61,21 @@ public class SignInPage extends BasePageObject {
 		
 		return txt;
 	}
-	
+public HomePage closeIcon() throws Exception{
+		
+		try {
+			
+			flag = isElementPresent(btnCloseIcon);
+			Assert.assertTrue(flag, "Login Close icon is not displayed");
+			setElement(btnCloseIcon).click();
+			TimesJobUtil.explicitWait(2000);
+		} catch (Exception e) {
+			throw new Exception("Failed to click on close icon");
+		}
+		
+		return new HomePage(driver);
+	}
+
+
 
 }
