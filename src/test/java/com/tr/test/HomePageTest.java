@@ -51,6 +51,7 @@ public class HomePageTest extends BaseTestObject{
 	    step++;
 	    Reporter.log(stepTxt+step+"Pop header text:"+text+":"+TimesJobConstants.TITLE_SIGNIN);
 	    Assert.assertEquals(text, TimesJobConstants.TITLE_SIGNIN);
+	    objSignInpage.closeIcon();
 	} 
 	catch (Exception e) 
 	{
